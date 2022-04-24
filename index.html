@@ -9,25 +9,24 @@
 </head>
 <body>
     <h2>Tic Tac Toe</h2>
-    <div class='welcome'>
-        <form>
-            <label>Please enter your name:
-                <input type='text' placeholder='Player 1'>
-            </label>
-            <div class='markers'>
-                <h5>Please choose a marker:</h5>
-                <label>X
-                    <input type='radio' value='X'>
-                </label>
-                <label>O
-                    <input type='radio' value='O'>
-                </label>
-                </div>
-        </form>
-        <button type='button'>Click here to Play</button>
-    </div>
     <div class='gameboard'>
-        <div></div>
+        <table>
+            <tr>
+                <td data-pos=0>x</td>
+                <td data-pos=1>x</td>
+                <td data-pos=2>x</td>
+            </tr>
+            <tr>                
+                <td data-pos=3>x</td>
+                <td data-pos=4>x</td>
+                <td data-pos=5>x</td>
+            </tr>
+            <tr>
+                <td data-pos=6>x</td>
+                <td data-pos=7>x</td>
+                <td data-pos=8>x</td>
+            </tr>
+        </table>
     </div>
 </body>
 <script src='script.js'></script>

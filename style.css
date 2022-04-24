@@ -1,11 +1,11 @@
-*,
-::after *,
-::before * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 2rem solid black;
 }
 .welcome {
     background-color: rebeccapurple;
+}
+.gameboard td {
+    border: 0.15em solid black;
 }
