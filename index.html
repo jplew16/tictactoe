@@ -8,8 +8,11 @@
     <link href='style.css' rel='stylesheet'>
 </head>
 <body>
-    <h2>Tic Tac Toe</h2>
-    <div class='gameboard'>
+    <h1>Tic Tac Toe</h1>
+    <main>
+    <div class='game'>
+        <div class="gameboard">
+           <div class="play-game">Click on the board to start playing...</div>
         <table>
             <tr>
                 <td data-pos=0></td>
@@ -27,12 +30,27 @@
                 <td data-pos=8></td>
             </tr>
         </table>
-        <div class="legend">
-            <h4>Markers</h4>
-                <p>User: O</p>
-                <p>Computer: X</p>
-        </div>
     </div>
+</div>
+        <div class="winner">
+            <ul>
+                <li class="heading">Results:</li>
+                <li class="subheading">Thanks for playing</li>
+                <li class="player">user</li>
+            </ul>
+        </div>
+        <section class="restart">
+            <p>
+                <form action="/script.js">
+                    <div class="reset">
+                        <button type="button"><strong>Restart</strong></button>
+                        <label for="name"><span class="name">Name:</span></label>
+                        <input type="text" id="name" name="username">
+                    </div>
+                </form>
+            </p>
+        </section>
+        </main>
 </body>
 <script src='script.js'></script>
 </html>

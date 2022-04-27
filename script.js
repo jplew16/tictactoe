@@ -7,18 +7,25 @@ const gameboard = (() => {
     const makePlayer = function(name, marker) {
         return {name, marker};
     }
-    const check3InRow = function(playerName) {
-        let cycle = 3;
-        //horizontal 3 in a row check
-        for (let i=0; i<3; i++) {
-                if (board[cycle] == board[++cycle] && board[cycle] == board[++cycle]) {
-                    
-                }
+    let checkHLines = function() {
+        for (let i=-1; i<3; i++) {
+            if (board[++cycle] == board[++cycle] && board[cycle] == board[++cycle]) {
+                return cycle;
+            }
         }
-        cycle = 3
+    }
+    const check3InRow = function(player) {
+        switch(player.marker) {
+            case board[checkHLines()]:
+                dom.displayWinner(cycle - 1);
+            break;
+            default:
+                console.log('Its a tie!');
+                break;
+        }
         //vertical 3 in a row check
         for (let i=0; i<3; i++) {
-            if (board[cycle] == board[++cycle] && board[cycle] == board[++cycle]) {
+            if (board[cycle] == board[cycle += 3] && board[cycle] == board[cycle =+ 3]) {
                 //winner
             }
     }
@@ -55,7 +62,9 @@ const gameboard = (() => {
             console.log(emptySpaces);
             displayController.playerPlace(playerPos, gameboard.player1.marker)
             comPlace();
-            check3InRow(gameboard.player1);
+            if (emptySpaces.length < 5)
+            //Check if at least two turns passed to check for 3 in a row
+                check3InRow(gameboard.player1);
             }
         }
     const comPlace = function() {
@@ -71,7 +80,11 @@ const gameboard = (() => {
         
         displayController.playerPlace(emptySpaces[comPos], gameboard.playerCom.marker);
         emptySpaces.splice(comPos, 1);
-        check3InRow(gameboard.playerCom);
+        
+        if (emptySpaces.length < 5) {
+            //Check if at least two turns passed to check for 3 in a row
+            check3InRow(gameboard.player1);
+        }
         
         console.log(board);
         console.log(emptySpaces);
@@ -96,7 +109,7 @@ const displayController = (() =>{
     }
     const playerPlace = (pos, marker) => {
         let posEl = getPosEl(pos);
-            posEl.textContent = marker
+            dom.addMarker(posEl, marker);
     } 
     return {
         playerPlace
@@ -104,18 +117,36 @@ const displayController = (() =>{
 })();
 
 const dom = (function(global) {
-    let displayBoard = global.document.querySelector('div.gameboard');
+    let displayBoard = global.document.querySelector('div.gameboard>table');
     displayBoard.addEventListener('click', gameboard.playerPlace);
     
     global.addEventListener('load', function() {
         gameboard.player1 = gameboard.makePlayer('User', 'O');
         gameboard.playerCom = gameboard.makePlayer('CPU', 'X');
     });
-    let displayWinner = function() {
+    let displayWinner = function(player) {
         //toggle class for element showing winner
+        console.log(player);
+
+    }
+    let addMarker = function(posEl, marker) {
+        if (marker == gameboard.player1.marker) {
+            const circle = global.document.createElement('div');
+            circle.classList.add('circle');
+            posEl.appendChild(circle);
+        } else {
+            const crossRight = global.document.createElement('div');
+            const crossLeft = global.document.createElement('div');
+            
+            crossLeft.classList.add('cross-left');
+            crossRight.classList.add('cross-right');
+            posEl.append(crossLeft, crossRight);
+        }
     }
     return {
-        displayBoard
+        displayBoard,
+        displayWinner,
+        addMarker
     }
 })(window);
 
