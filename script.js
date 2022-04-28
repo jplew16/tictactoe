@@ -17,7 +17,7 @@ const gameboard = (() => {
     const check3InRow = function(player) {
         switch(player.marker) {
             case board[checkHLines()]:
-                dom.displayWinner(cycle - 1);
+                dom.displayWinner(cycle - 1, 'h');
             break;
             default:
                 console.log('Its a tie!');
@@ -124,6 +124,15 @@ const dom = (function(global) {
         gameboard.player1 = gameboard.makePlayer('User', 'O');
         gameboard.playerCom = gameboard.makePlayer('CPU', 'X');
     });
+    const addHLine = function() {
+
+    }
+    const addVLine = function() {
+        
+    }
+    const addDLine = function() {
+
+    }
     let displayWinner = function(player) {
         //toggle class for element showing winner
         console.log(player);

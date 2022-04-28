@@ -74,12 +74,14 @@ section {
     margin-bottom: 2em;
 }
 .restart button {
+    -webkit-appearance: none;
+    appearance: none;
     width: 50%;
     margin: 0 auto;
+    border-radius: 5%;
     display: block;
     padding: 5px;
     border: 2px black solid;
-    border-radius: 15%;
     background-color: rgb(75, 75, 232);
 }
 .reset strong {
@@ -124,4 +126,14 @@ section {
     left: 5%;
     border-radius: 20%;
     transform: rotate(-45deg);
+}
+.h-line {
+    background-color: darkgreen;
+    display: block;
+    position: absolute;
+    border-radius: 5%;
+    width: 45vw;
+    left: 25%;
+    height: 5%;
+
 }

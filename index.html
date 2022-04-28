@@ -15,18 +15,18 @@
            <div class="play-game">Click on the board to start playing...</div>
         <table>
             <tr>
-                <td data-pos=0></td>
+                <td data-pos=0><div class="h-line"></div></td>
                 <td data-pos=1></td>
                 <td data-pos=2></td>
             </tr>
             <tr>                
-                <td data-pos=3></td>
+                <td data-pos=3><div class="h-line"></div></td>
                 <td data-pos=4></td>
                 <td data-pos=5></td>
             </tr>
             <tr>
                 <td data-pos=6></td>
-                <td data-pos=7></td>
+                <td data-pos=7><div class="h-line"></div></td>
                 <td data-pos=8></td>
             </tr>
         </table>
@@ -44,8 +44,10 @@
                 <form action="/script.js">
                     <div class="reset">
                         <button type="button"><strong>Restart</strong></button>
+                    </div>
+                    <div class="player-name">
                         <label for="name"><span class="name">Name:</span></label>
-                        <input type="text" id="name" name="username">
+                        <input type="text" id="name" name="player-name">
                     </div>
                 </form>
             </p>
