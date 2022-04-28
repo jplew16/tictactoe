@@ -1,1 +1,1 @@
-Live: https://github.com/jplew16/tictactoe/deployments/activity_log?environment=github-pages
+Live: https://jplew16.github.io/tictactoe/
